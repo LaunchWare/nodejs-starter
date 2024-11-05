@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "dev": "tsx --watch src/app.ts",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.app.json",
     "lint": "eslint src",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -15,6 +15,7 @@
   "author": "Dan Pickett",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "pino": "^9.5.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@launchware/eslint-config-node": "^0.2.0",
+    "@types/body-parser": "^1.19.5",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",

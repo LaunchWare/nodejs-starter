@@ -1,0 +1,47 @@
+name: PR CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - staging
+      - production
+jobs:
+  format_and_test:
+    name: Format and Test
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: write
+      checks: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install asdf & tools
+        uses: asdf-vm/actions/install@v3
+      - name: asdf cache
+        id: asdf-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.asdf/
+          key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+      - name: Get pnpm store directory
+        id: pnpm_cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        if: steps.npm_cache.outputs.cache-hit != 'true'
+      - run: pnpm build
+      - run: pnpm lint
+      - run: pnpm test:coverage

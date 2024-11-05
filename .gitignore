@@ -40,3 +40,6 @@ coverage/
 
 # Optional: OS-specific files
 Thumbs.db
+
+*.tsbuildinfo
+

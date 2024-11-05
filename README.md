@@ -1,28 +1,25 @@
+
 # LaunchWare NodeJS Starter
 
 ## Philosophy
 
-This is intended to be an extremely barebones set up that includes some of our
-favorite tools:
+This is intended to be an extremely barebones setup that includes some of our favorite tools:
 
-- [DotEnv](dotenv) - Easily configure secrets and configuration values via
-  environment variables
-- [Express](express) - widely adopted, minimalist web framework
-- [TypeScript](typescript) - strict typing to ensure software is delivered
-  qualitatively
-- [Pino](pino) - lightweight logging with a supplied wrapper
-- [ESLint](eslint) - code formatting with LaunchWare's opinionated
-  [eslint-config-node](eslint-config-node)
-- [Prettier](prettier) - more code formatting
-- [Vitest](vitest) - unit testing
-- [pnpm](pnpm) - performant package management
-- [asdf](asdf) - platform agnostic version management
+- [DotEnv](https://www.npmjs.com/package/dotenv) - Easily configure secrets and configuration values via environment variables.
+- [Express](https://expressjs.com/) - Widely adopted, minimalist web framework.
+- [TypeScript](https://www.typescriptlang.org/) - Strict typing to ensure software is delivered qualitatively.
+- [Pino](https://getpino.io/#/) - Lightweight logging with a supplied wrapper.
+- [ESLint](https://eslint.org/) - Code formatting with LaunchWare's opinionated [eslint-config-node](https://www.npmjs.com/package/eslint-config-node).
+- [Prettier](https://prettier.io/) - More code formatting.
+- [Vitest](https://vitest.dev/) - Unit testing framework.
+- [pnpm](https://pnpm.io/) - Performant package management.
+- [asdf](https://asdf-vm.com/) - Platform-agnostic version management.
 
 ## Get Started
 
 ### Prerequisites
 
-Install [asdf](asdf-install-instructions)
+Install [asdf](https://asdf-vm.com/guide/getting-started.html).
 
 ### Getting Up and Running
 
@@ -33,3 +30,4 @@ asdf install
 pnpm install
 pnpm dev
 ```
+
