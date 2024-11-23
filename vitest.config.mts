@@ -9,6 +9,13 @@ export default defineConfig({
   },
   test: {
     globals: true,
+    coverage: {
+      exclude: [
+        "src/**/*.test.ts",
+        "eslint.config.cjs",
+        "prettier.config.mjs",
+      ],
+    },
     environment: "node",
     typecheck: {
       enabled: true,
